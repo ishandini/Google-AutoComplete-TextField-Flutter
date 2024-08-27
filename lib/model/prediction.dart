@@ -1,3 +1,5 @@
+import 'place_details.dart';
+
 class PlacesAutocompleteResponse {
   List<Prediction>? predictions;
   String? status;
@@ -35,6 +37,7 @@ class Prediction {
   List<String>? types;
   String? lat;
   String? lng;
+  List<AddressComponents>? addressComponents;
 
   Prediction(
       {this.description,
@@ -63,7 +66,7 @@ class Prediction {
         ? new StructuredFormatting.fromJson(json['structured_formatting'])
         : null;
     if (json['terms'] != null) {
-      terms =[];
+      terms = [];
       json['terms'].forEach((v) {
         terms!.add(new Terms.fromJson(v));
       });

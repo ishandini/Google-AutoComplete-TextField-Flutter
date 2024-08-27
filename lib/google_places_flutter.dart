@@ -54,7 +54,8 @@ class GooglePlaceAutoCompleteTextField extends StatefulWidget {
       this.containerHorizontalPadding,
       this.containerVerticalPadding,
       this.focusNode,
-      this.placeType,this.language='en'});
+      this.placeType,
+      this.language = 'en'});
 
   @override
   _GooglePlaceAutoCompleteTextFieldState createState() =>
@@ -273,6 +274,7 @@ class _GooglePlaceAutoCompleteTextFieldState
 
       prediction.lat = placeDetails.result!.geometry!.location!.lat.toString();
       prediction.lng = placeDetails.result!.geometry!.location!.lng.toString();
+      prediction.addressComponents = placeDetails.result.addressComponents;
 
       widget.getPlaceDetailWithLatLng!(prediction);
     } catch (e) {
