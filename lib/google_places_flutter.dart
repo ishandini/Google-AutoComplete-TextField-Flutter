@@ -264,7 +264,7 @@ class _GooglePlaceAutoCompleteTextFieldState
     //String key = GlobalConfiguration().getString('google_maps_key');
 
     var url =
-        "https://maps.googleapis.com/maps/api/place/details/json?placeid=${prediction.placeId}&key=${widget.googleAPIKey}";
+        "https://maps.googleapis.com/maps/api/place/details/json?placeid=${prediction.placeId}&fields=address_components&key=${widget.googleAPIKey}";
     try {
       Response response = await _dio.get(
         url,
